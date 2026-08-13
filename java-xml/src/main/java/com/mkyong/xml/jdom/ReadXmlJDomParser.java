@@ -13,7 +13,8 @@ import java.util.List;
 // https://mkyong.com/java/how-to-read-xml-file-in-java-jdom-example/
 public class ReadXmlJDomParser {
 
-    private static final String FILENAME = "src/main/resources/staff.xml";
+//    private static final String FILENAME = "src/main/resources/staff.xml";
+    private static final String FILENAME = "staff.xml";
 
     //private static final String FILENAME = "c://test//staff.xml";
 
