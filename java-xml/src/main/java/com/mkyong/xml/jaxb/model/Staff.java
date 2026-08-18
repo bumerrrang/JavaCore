@@ -8,7 +8,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import org.eclipse.persistence.oxm.annotations.XmlCDATA;
+//import org.eclipse.persistence.oxm.annotations.XmlCDATA;
 
 // Java 8?
 //import com.sun.xml.internal.txw2.annotation.XmlCDATA;
@@ -23,7 +23,7 @@ public class Staff {
     int id;
     String name;
     String Salary;
-    @XmlCDATA
+//    @XmlCDATA
     String bio;
     @XmlJavaTypeAdapter(TimeZoneAdaptor.class)
     ZonedDateTime joinDate;

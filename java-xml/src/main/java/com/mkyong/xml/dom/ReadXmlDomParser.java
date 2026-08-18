@@ -7,20 +7,19 @@ import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
+// https://mkyong.com/java/how-to-read-xml-file-in-java-dom-parser/
 public class ReadXmlDomParser {
 
-    private static final String FILENAME = "src/main/resources/staff.xml";
+    private static final String FILENAME = "./java-xml/src/main/resources/staff.xml";
 
     public static void main(String[] args) {
 
         // Instantiate the Factory
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 
-        try (InputStream is = readXmlFileIntoInputStream("staff.xml")) {
+        try (InputStream is = readXmlFileIntoInputStream(FILENAME)) {
 
             // optional, but recommended
             // process XML securely, avoid attacks like XML External Entities (XXE)
@@ -84,8 +83,14 @@ public class ReadXmlDomParser {
     }
 
     // read file from resource's folder.
-    private static InputStream readXmlFileIntoInputStream(final String fileName) {
-        return ReadXmlDomParser.class.getClassLoader().getResourceAsStream(fileName);
+    private static InputStream readXmlFileIntoInputStream(final String fileName) throws FileNotFoundException {
+//// initial state       return ReadXmlDomParser.class.getClassLoader().getResourceAsStream(fileName);
+
+// https://www.baeldung.com/convert-file-to-input-stream
+        final File initialFile = new File(fileName);
+        final InputStream targetStream =
+                new DataInputStream(new FileInputStream(initialFile));
+        return targetStream;
     }
 
 }
