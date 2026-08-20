@@ -17,7 +17,8 @@ import java.util.List;
 
 public class ModifyXmlJDomParser {
 
-    private static final String FILENAME = "src/main/resources/staff.xml";
+//    private static final String FILENAME = "src/main/resources/staff.xml";
+    private static final String FILENAME = "./java-xml/src/main/resources/staff.xml";
 
     public static void main(String[] args) throws JDOMException, IOException {
 
@@ -102,7 +103,10 @@ public class ModifyXmlJDomParser {
                      new FileOutputStream("c:\\test\\staff-update.xml")) {
             xmlOutput.output(doc, output);
         }*/
-
+        try (FileOutputStream output =
+                     new FileOutputStream("./java-xml/src/main/resources/jdom_modified_staff.xml")) {
+            xmlOutput.output(doc, output);
+        }
     }
 
 }

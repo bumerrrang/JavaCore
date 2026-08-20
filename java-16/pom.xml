@@ -20,22 +20,23 @@
     <dependencies>
     </dependencies>
 
-    <build>
-        <finalName>java16</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                    <compilerArgs>
-                        <parameters>true</parameters>
-                        <arg>--add-modules=jdk.incubator.foreign</arg>
-                    </compilerArgs>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+    <!--    commented out by AL, 19/08/2026-->
+<!--    <build>-->
+<!--        <finalName>java16</finalName>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-compiler-plugin</artifactId>-->
+<!--                <version>3.8.1</version>-->
+<!--                <configuration>-->
+<!--                    <source>${java.version}</source>-->
+<!--                    <target>${java.version}</target>-->
+<!--                    <compilerArgs>-->
+<!--                        <parameters>true</parameters>-->
+<!--                        <arg>&#45;&#45;add-modules=jdk.incubator.foreign</arg>-->
+<!--                    </compilerArgs>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
 </project>

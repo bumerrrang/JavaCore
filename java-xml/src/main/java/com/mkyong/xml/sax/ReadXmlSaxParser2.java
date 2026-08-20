@@ -9,8 +9,7 @@ import org.xml.sax.XMLReader;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
@@ -55,8 +54,15 @@ public class ReadXmlSaxParser2 {
     }
 
     // get XML file from resources folder.
-    private static InputStream getXMLFileAsStream() {
-        return ReadXmlSaxParser2.class.getClassLoader().getResourceAsStream("staff.xml");
+    private static InputStream getXMLFileAsStream() throws FileNotFoundException {
+//// initial file reading below
+//        return ReadXmlSaxParser2.class.getClassLoader().getResourceAsStream("staff.xml");
+        // https://www.baeldung.com/convert-file-to-input-stream
+        String fileName = "./java-xml/src/main/resources/staff.xml";
+        final File initialFile = new File(fileName);
+        final InputStream targetStream =
+                new DataInputStream(new FileInputStream(initialFile));
+        return targetStream;
     }
 
 }

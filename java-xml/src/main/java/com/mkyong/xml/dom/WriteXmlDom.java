@@ -99,13 +99,13 @@ public class WriteXmlDom {
         writeXml(doc, System.out);
 
         // write dom document to a file
-        /*try (FileOutputStream output =
-                     new FileOutputStream("c:\\test\\staff-dom.xml")) {
+        try (FileOutputStream output =
+//                     new FileOutputStream("c:\\test\\staff-dom.xml")) {
+                     new FileOutputStream("./java-xml/src/main/resources/staff-dom.xml")) {
             writeXml(doc, output);
         } catch (IOException e) {
             e.printStackTrace();
-        }*/
-
+        }
     }
 
     // write doc to output stream

@@ -11,7 +11,7 @@ import java.io.IOException;
 // https://mkyong.com/java/how-to-read-xml-file-in-java-sax-parser/
 public class ReadXmlSaxParser {
 
-    private static final String FILENAME = "src/main/resources/staff.xml";
+    private static final String FILENAME = "./java-xml/src/main/resources/staff.xml";
     //private static final String FILENAME = "c://test//staff.xml";
 
     public static void main(String[] args) {

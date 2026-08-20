@@ -1,7 +1,12 @@
 package com.mkyong.xml.jaxb;
 
 import com.mkyong.xml.jaxb.model.Fruit;
-import jakarta.xml.bind.*;
+//import jakarta.xml.bind.*;
+
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Marshaller;
+import jakarta.xml.bind.Unmarshaller;
 
 import java.io.File;
 
@@ -14,12 +19,13 @@ public class JaxbExampleFruit {
         try {
 
             // Normal JAXB RI
-            //jaxbContext = JAXBContext.newInstance(Fruit.class);
+            jaxbContext = JAXBContext.newInstance(Fruit.class);
 
             // EclipseLink MOXy needs jaxb.properties at the same package with Fruit.class
             // Alternative, I prefer define this via eclipse JAXBContextFactory manually.
-            jaxbContext = org.eclipse.persistence.jaxb.JAXBContextFactory
-                    .createContext(new Class[]{Fruit.class}, null);
+            // we need commented out code below if we want to work with EclipseLink MOX
+//            jaxbContext = org.eclipse.persistence.jaxb.JAXBContextFactory
+//                    .createContext(new Class[]{Fruit.class}, null);
 
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
@@ -39,15 +45,20 @@ public class JaxbExampleFruit {
 
             // output to a xml file
             //jaxbMarshaller.marshal(o, new File("C:\\test\\fruit.xml"));
+            jaxbMarshaller.marshal(o, new File("./java-xml/src/main/resources/fruit.xml"));
 
             // output to console
             jaxbMarshaller.marshal(o, System.out);
 
             // XML Unmarshalling
-            /*File file = new File("C:\\test\\fruit.xml");
+            //File file = new File("C:\\test\\fruit.xml");
+            File file = new File("./java-xml/src/main/resources/fruit.xml");
+            //Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-            Fruit o = (Fruit) jaxbUnmarshaller.unmarshal(file);
-            System.out.println(o);*/
+            //Fruit o = (Fruit) jaxbUnmarshaller.unmarshal(file);
+            Fruit o2 = (Fruit) jaxbUnmarshaller.unmarshal(file);
+            //System.out.println(o);
+            System.out.println("o2 -> " + o2);
 
         } catch (JAXBException e) {
             e.printStackTrace();

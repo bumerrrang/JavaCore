@@ -17,9 +17,9 @@ import java.io.*;
 
 public class ModifyXmlDomParser {
 
-    private static final String FILENAME = "src/main/resources/staff-simple.xml";
+    private static final String FILENAME = "./java-xml/src/main/resources/staff-simple.xml";
     // xslt for pretty print only, no special task
-    private static final String FORMAT_XSLT = "src/main/resources/xslt/staff-format.xslt";
+    private static final String FORMAT_XSLT = "./java-xml/src/main/resources/xslt/staff-format.xslt";
 
     public static void main(String[] args) {
 
@@ -120,10 +120,11 @@ public class ModifyXmlDomParser {
             }
 
             // output to console
-            // writeXml(doc, System.out);
+            writeXml(doc, System.out);
 
             try (FileOutputStream output =
-                         new FileOutputStream("c:\\test\\staff-modified.xml")) {
+//                         new FileOutputStream("c:\\test\\staff-modified.xml")) {
+                         new FileOutputStream("./java-xml/src/main/resources/staff-simple.xml")) {
                 writeXml(doc, output);
             }
 

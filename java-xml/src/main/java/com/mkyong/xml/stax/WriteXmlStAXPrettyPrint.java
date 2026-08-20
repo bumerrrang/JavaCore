@@ -42,6 +42,11 @@ public class WriteXmlStAXPrettyPrint {
 
             // Java 7 - write to file
             //Files.write(Paths.get("/home/mkyong/test.xml"), prettyPrintXML.getBytes(StandardCharsets.UTF_8));
+            try {
+                Files.write(Paths.get("./java-xml/src/main/resources/write_xml_stax_pretty.xml"), prettyPrintXML.getBytes(StandardCharsets.UTF_8));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
             // BufferedWriter - write to file
             /*try (FileWriter writer = new FileWriter("/home/mkyong/test.xml");

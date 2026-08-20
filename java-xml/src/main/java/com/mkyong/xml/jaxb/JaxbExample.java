@@ -26,12 +26,13 @@ public class JaxbExample {
         JAXBContext jaxbContext = null;
         try {
 
-            //jaxbContext = JAXBContext.newInstance(Company.class);
+            jaxbContext = JAXBContext.newInstance(Company.class);
 
             // EclipseLink MOXy needs jaxb.properties at the same package with Company.class or Staff.class
             // Alternative, I prefer define this via eclipse JAXBContextFactory manually.
-            jaxbContext = org.eclipse.persistence.jaxb.JAXBContextFactory
-                    .createContext(new Class[] {Company.class}, null);
+            // we need commented out code below if we want to work with EclipseLink MOX
+            // jaxbContext = org.eclipse.persistence.jaxb.JAXBContextFactory
+            //        .createContext(new Class[] {Company.class}, null);
 
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
@@ -49,14 +50,19 @@ public class JaxbExample {
             //jaxbMarshaller.setProperty("com.sun.xml.bind.xmlHeaders", "<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
 
             //jaxbMarshaller.marshal(createCompanyObject(), new File("C:\\test\\company.xml"));
+            jaxbMarshaller.marshal(createCompanyObject(), new File("./java-xml/src/main/resources/company.xml"));
 
             jaxbMarshaller.marshal(createCompanyObject(), System.out);
 
             // XML Unmarshalling
-            /*File file = new File("C:\\test\\company.xml");
+            //File file = new File("C:\\test\\company.xml");
+            File file = new File("./java-xml/src/main/resources/company.xml");
+            //Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+//            Company o = (Company) jaxbUnmarshaller.unmarshal(file);
             Company o = (Company) jaxbUnmarshaller.unmarshal(file);
-            System.out.println(o);*/
+//            System.out.println(o);
+            System.out.println(o);
 
         } catch (JAXBException e) {
             e.printStackTrace();

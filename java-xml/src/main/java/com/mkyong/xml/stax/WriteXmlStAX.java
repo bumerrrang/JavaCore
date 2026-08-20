@@ -11,7 +11,8 @@ public class WriteXmlStAX {
     public static void main(String[] args) throws XMLStreamException {
 
         // send the output to a xml file
-        try (FileOutputStream out = new FileOutputStream("/home/mkyong/test.xml")) {
+//        try (FileOutputStream out = new FileOutputStream("/home/mkyong/test.xml")) {
+        try (FileOutputStream out = new FileOutputStream("./java-xml/src/main/resources/write_xml_stax.xml")) {
             writeXml2(out);
         } catch (IOException e) {
             e.printStackTrace();

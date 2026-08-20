@@ -60,14 +60,14 @@
         </dependency>
 
         <!-- https://eclipse-ee4j.github.io/jaxb-ri/ -->
-        <!--
+
         <dependency>
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-impl</artifactId>
             <version>3.0.0</version>
             <scope>runtime</scope>
         </dependency>
-        -->
+
 
         <!-- https://wiki.eclipse.org/EclipseLink/Examples/MOXy -->
         <dependency>

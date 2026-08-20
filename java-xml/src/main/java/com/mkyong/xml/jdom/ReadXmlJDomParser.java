@@ -14,7 +14,8 @@ import java.util.List;
 public class ReadXmlJDomParser {
 
 //    private static final String FILENAME = "src/main/resources/staff.xml";
-    private static final String FILENAME = "staff.xml";
+//    private static final String FILENAME = "staff.xml";
+    private static final String FILENAME = "./java-xml/src/main/resources/staff.xml";
 
     //private static final String FILENAME = "c://test//staff.xml";
 

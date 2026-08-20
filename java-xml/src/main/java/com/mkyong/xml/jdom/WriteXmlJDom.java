@@ -9,9 +9,7 @@ import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.StringReader;
+import java.io.*;
 
 public class WriteXmlJDom {
 
@@ -89,13 +87,20 @@ public class WriteXmlJDom {
                     new FileOutputStream("c:\\test\\file.xml")){
             xmlOutputter.output(doc, fileOutputStream);
         }*/
+        try(FileOutputStream fileOutputStream =
+                    new FileOutputStream("./java-xml/src/main/resources/jdom_outputstream_staff.xml")){
+            xmlOutputter.output(doc, fileOutputStream);
+        }
 
         // output to any Writer
         /*try(FileWriter fileWriter =
                     new FileWriter("c:\\test\\file.xml")){
             xmlOutputter.output(doc, fileWriter);
         }*/
-
+        try(FileWriter fileWriter =
+                    new FileWriter("./java-xml/src/main/resources/jdom_filewriter_staff.xml")){
+            xmlOutputter.output(doc, fileWriter);
+        }
     }
 
     private static void writeSimpleXml() throws JDOMException, IOException {

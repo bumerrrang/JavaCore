@@ -16,7 +16,8 @@ import java.nio.file.Paths;
 
 public class ReadXmlStAXEventParser {
 
-    private static final String FILENAME = "src/main/resources/staff.xml";
+//    private static final String FILENAME = "./java-xml/src/main/resources/staff.xml";
+    private static final String FILENAME = "./java-xml/src/main/resources/staff.xml";
 
     public static void main(String[] args) {
 
